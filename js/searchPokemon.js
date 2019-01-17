@@ -27,7 +27,7 @@ function searchPokemon()
 	var request2 = new XMLHttpRequest();
 	request2.open('GET', "https://pokedex-back.herokuapp.com/public/getinfo.php?id="+id, true);
 
-	document.getElementById("findPokemonImage").src="/images/pokemon/"+id+".png";
+	document.getElementById("findPokemonImage").src="./images/pokemon/"+id+".png";
 
 	request2.onload = function () {
 		var data = JSON.parse(request2.response);
