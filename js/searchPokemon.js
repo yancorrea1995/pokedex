@@ -172,7 +172,7 @@ function searchViewPokemon(id)
     }
     request.send();
 
-
+    $("#contentDiv").animate({ scrollTop: 0 }, "fast");
 
     if(document.getElementById("edit").innerHTML == 'Edit Pokemons')
         $('#viewModal').modal('show');
