@@ -46,7 +46,7 @@ function SubmitFormData() {
     }
     else
     {
-	    $.post("http://pokedex-back.herokuapp.com/public/insert.php", 
+	    $.post("https://pokedex-back.herokuapp.com/public/insert.php", 
 	    	{
 		    	name: name,
 		    	day: day,
@@ -129,7 +129,7 @@ function deletePokemon(id)
 
 function doDelete(id)
 {
-	$.post("http://pokedex-back.herokuapp.com/public/remove.php", { id: id},function(data) {
+	$.post("https://pokedex-back.herokuapp.com/public/remove.php", { id: id},function(data) {
 	    $('#deleteModal').modal('hide');
 	    toggleTools();
 	    clearMyPokedex();

@@ -25,7 +25,7 @@ function catchPokemon() {
 
     
 
-    $.post("http://pokedex-back.herokuapp.com/public/insert.php", 
+    $.post("https://pokedex-back.herokuapp.com/public/insert.php", 
 	{
     	name: name,
     	day: day,
