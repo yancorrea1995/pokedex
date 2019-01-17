@@ -152,7 +152,7 @@ function viewPokemon(id)
 		divviewmoves.innerHTML ='';
 		data.forEach(function(object) {
         	document.getElementById('viewTitle').innerHTML = object.name;
-        	document.getElementById("viewPokemonImage").src="/images/pokemon/"+object.pokemonid+".png";
+        	document.getElementById("viewPokemonImage").src="./images/pokemon/"+object.pokemonid+".png";
 
         	dArr = object.day.split("-");
   			var day = dArr[2]+ "/" +dArr[1]+ "/" +dArr[0].substring(2);
