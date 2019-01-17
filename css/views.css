@@ -1,0 +1,100 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+#add_data_Modal,#deleteModal{
+    margin: auto !important;
+    position: relative !important;
+    margin-top: 20%;
+}
+#viewModal,#findModal{
+    margin: auto !important;
+    margin-top: 20%;
+}
+
+.modal-content{
+    border: none !important;
+}
+
+.row{
+    width:95% !important;
+    margin-left: auto !important;
+}
+.card{
+    width: 170px;
+    min-width: 170px;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+}
+.btncard{
+    margin: 0px 5px 0px 5px;
+}
+.btntools{
+    margin: 0px 5px 0px 5px;   
+}
+.card-title,.modal-title{
+    text-transform:capitalize;
+    text-align: center;
+}
+
+.modal-title{
+    width: 100%;
+}
+
+.cardtools{
+    display: none;
+    text-align: center;
+}
+.col-sm-4{
+    max-width: 25%;
+    flex: 30%;
+    padding: 5px;
+}
+.btn-fix {
+    border: none;   
+    white-space: normal;
+    text-align: center;
+}
+
+#viewPokemonImage{
+    width: 150px;
+    height: 150px;
+
+}
+
+.viewType{
+    float: left;
+    width: 30%;
+    text-align: center;
+    margin-right: 5px;
+    background-color: rgb(105, 194, 61);
+    color: white;
+}
+
+.scrollmodal{
+    max-height: 65vh;
+    overflow-y: auto;
+}
+.scrollModalDialog{
+    overflow-y: initial !important
+}
+
+.viewSeparator{
+    margin-top: 10px;
+    border-top: 1px solid #e9ecef;
+}
+
+.moveItem{
+    float: left;
+    width: 50%;
+}
