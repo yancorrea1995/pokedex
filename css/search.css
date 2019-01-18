@@ -6,3 +6,49 @@
 	background-image: url('../images/background.jpg');
 	background-repeat: no-repeat;
 }
+
+#findPokemonImage{
+	float: left;
+	width: 40%;
+}
+
+#findtypes{
+	float: left;
+	width: 60%;
+	margin-bottom: 20px;
+}
+
+#statsDiv{
+	float: left;
+	width: 60%;
+}
+#pkID{
+	width: 30%;
+	float: left;
+}
+#findPokemonID,.infoLabel{
+	width: 20%;
+	float: left;
+}
+#findDescription{
+	width: 100%;
+}
+#findHeight,#findWeight{
+	float: left;
+	width: 30%;
+}
+#movesLabel{
+	margin-top: 40px;
+}
+#findMoves{
+	width: 100%;
+}
+
+.statsName{
+	float: left;
+	width: 40%;
+}
+.progress{
+	float: left;
+	width: 60%;
+}

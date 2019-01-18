@@ -23,14 +23,12 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -80,7 +78,6 @@
 
         <!-- Page Content  -->
         <div id="content">
-
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
@@ -101,8 +98,8 @@
                     </div>
                 </div>
             </nav>
-
         </div>
+
     </div>
 
     
@@ -118,70 +115,70 @@
             </div>
             <div class="modal-body scrollmodal">
 
-                <div style="float: left; width: 40%;"><img id="findPokemonImage" src=""></div>
+                <div><img id="findPokemonImage" src=""></div>
 
-                    <div id="findtypes" style="float: left;width: 60%;margin-bottom: 20px;">
-                        <!--get in DB-->
-                    </div>
+                <div id="findtypes">
+                    <!--get in DB-->
+                </div>
 
-                    <div style="float: left;width: 60%">
-                        <div style="float: left;width: 40%">HP</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonHP" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Attack</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonAttack" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Defense</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonDefense" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Speed</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpeed" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Sp Atk</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpAttack" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Sp Def</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpDefense" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
+                <div id="statsDiv">
+                    <div class="statsName">HP</div>
+                    <div class="progress">
+                        <div id="fpokemonHP" class="progress-bar bg-success" style="width:10%"></div>
                     </div>
+                    <br/>
+                    <div class="statsName">Attack</div>
+                    <div class="progress">
+                        <div id="fpokemonAttack" class="progress-bar bg-success" style="width:10%"></div>
+                    </div>
+                    <br/>
+                    <div class="statsName">Defense</div>
+                    <div class="progress">
+                        <div id="fpokemonDefense" class="progress-bar bg-success" style="width:10%"></div>
+                    </div>
+                    <br/>
+                    <div class="statsName">Speed</div>
+                    <div class="progress">
+                        <div id="fpokemonSpeed" class="progress-bar bg-success" style="width:10%"></div>
+                    </div>
+                    <br/>
+                    <div class="statsName">Sp Atk</div>
+                    <div class="progress">
+                        <div id="fpokemonSpAttack" class="progress-bar bg-success" style="width:10%"></div>
+                    </div>
+                    <br/>
+                    <div class="statsName">Sp Def</div>
+                    <div class="progress">
+                        <div id="fpokemonSpDefense" class="progress-bar bg-success" style="width:10%"></div>
+                    </div>
+                </div>
 
-                    <div style="width: 100%;">
-                        <div style="width: 30%;float: left;">
-                            <b>Pokemon ID:&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                        </div>
-                        <div id="findPokemonID" style="width: 20%;float: left;">
-                            25
-                        </div>
-                        <br style="clear: left;" />  
+                <div style="width: 100%;">
+                    <div id="pkID">
+                        <b>Pokemon ID:&nbsp;&nbsp;&nbsp;&nbsp;</b>
                     </div>
-                    <h5 class="viewSeparator"><b>Description</b></h5>
-                    <div id="findDescription" style="width: 100%;">
-                        <!--get in DB-->
+                    <div id="findPokemonID">
+                        25
                     </div>
+                    <br style="clear: left;" />  
+                </div>
+                <h5 class="viewSeparator"><b>Description</b></h5>
+                <div id="findDescription">
+                    <!--get in DB-->
+                </div>
 
-                    <h5 class="viewSeparator"><b>Informations</b></h5>
-                    <div style="width: 100%;">
-                        <div style="float: left; width: 20%;"><b>Height:</b></div>
-                        <div id="findHeight" style="float: left; width: 30%;">???</div>
-                        <div style="float: left; width: 20%;"><b>Weight:</b></div>
-                        <div id="findWeight" style="float: left; width: 30%;">???</div>
-                    </div>
+                <h5 class="viewSeparator"><b>Informations</b></h5>
+                <div style="width: 100%;">
+                    <div class="infoLabel"><b>Height:</b></div>
+                    <div id="findHeight">???</div>
+                    <div class="infoLabel"><b>Weight:</b></div>
+                    <div id="findWeight">???</div>
+                </div>
 
-                    <h5 style="margin-top: 40px;"><b>Moves</b></h5>
-                    <div id="findMoves" style="width: 100%;">
-                        <!--get in DB-->
-                    </div>
+                <h5 id="movesLabel"><b>Moves</b></h5>
+                <div id="findMoves">
+                    <!--get in DB-->
+                </div>
 
             </div>
             <div class="modal-footer">

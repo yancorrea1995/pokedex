@@ -35,7 +35,7 @@ function searchPokemon()
 		var div = document.getElementById('findtypes');
 		div.innerHTML ='';
 		var div2 = document.getElementById('findMoves');
-		div2.innerHTML ='';
+		//div2.innerHTML ='';
 		data.forEach(function(object2) {
         	
         	var n = object2.name.charAt(0).toUpperCase() + object2.name.slice(1);
@@ -56,7 +56,9 @@ function searchPokemon()
 
         	var movesNumber = Math.floor(Math.random() * object2.moves[0].count) + 1; //random pokemon moves number
         	var totalMoves = movesNumber;
-        	while(movesNumber > 16)
+        	
+
+            while(movesNumber > 16)
         	{
         		movesNumber--;
         	}
@@ -84,6 +86,17 @@ function searchPokemon()
 
 		        allnumbers.splice(index, 1);
         	}
+            if(movesNumber < 16)
+            {
+                for (var l = movesNumber; l < 16; l++) {
+                    var divtype = document.createElement('div');
+                    divtype.id = 'move'+l;
+                    divtype.className = 'moveItem';
+                    divtype.innerHTML = 'NULL';
+                    divtype.style.cssText='display:none;';
+                    divfindmoves.appendChild(divtype);                    
+                }
+            }
 
         	document.getElementById('findDescription').innerHTML = object2.description;
         	document.getElementById('findHeight').innerHTML = (object2.height)/10 + ' m';

@@ -13,7 +13,6 @@
     <!--JS-->
     <script src="./js/main.js"></script>
     <script src="./js/common.js"></script>
-
     
     <!--OTHERS-->
     <!--For icons-->
@@ -23,20 +22,15 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-    
-
     <!--NAV imports-->
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -97,7 +91,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <button type="button" name="add" id="add" onclick="openInsertModal();" class="btn btn-success btntools">Add Captured Pokemon</button>
+                                <button type="button" name="removeAll" id="removeAll" onclick="deleteAll();" class="btn btn-danger btntools">Delete All Pokemons</button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" name="edit" id="edit"class="btn btn-warning btntools" onclick="toggleTools();">Edit Pokemons</button>
@@ -110,49 +104,16 @@
             <div class="row py-2">
                 <div class="col-sm-4">
                   <input type="search" placeholder="Search for Pokemon" name="search" class="form-control searchbox-input">
-                  <span style="position:absolute; right:5%;top:33%;" class="fas fa-search "></span>
+                  <span id="spSearch" class="fas fa-search "></span>
                 </div>
               </div>
 
-            <div class="row mypokemonscards" id="mypokemonscards" style="width: 400px;text-align: center;">
+            <div class="row mypokemonscards" id="mypokemonscards">
                 <!--load from db-->
             </div>
 
         </div>
     </div>
-
-    <!--MODAL-->
-    <div id="add_data_Modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Insert your Pokemon's data</h4>
-                    <button type="button" class="close" data-dismiss="modal" onclick="resetModal();">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" id="insert_form">
-                        <label> Pokemon Name</label>
-                        <input type="text" name="name" id="name" class="form-control" required autofocus />
-                        <div id="alertname" class="invalid-feedback">Please enter a Pokemon's name</div>
-                        <br/>
-                        <label>Catch Date</label>
-                        <div id="datetimepicker1" class="input-append date">
-                          <input name="day" id="day" data-format="dd/MM/yyyy hh:mm:ss" type="date" class="form-control clsDatePicker" required/>
-                          <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-                        </div>
-                        <div id="alertday" class="invalid-feedback">Please choose the catch day</div>
-                        <br/>
-                        <div class="modal-footer">
-                            <input type="button" name="insert" id="insert" value="Insert" class="btn btn-success" onclick="SubmitFormData()" />
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="resetModal();">Discard</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>   
-    </div>
-
-    <!--END MODAL-->
 
     <!--MODAL DELETE-->
     <div class="modal fade" id="deleteModal" role="dialog">
@@ -176,6 +137,28 @@
     </div>
     <!--END MODAL DELETE-->
 
+        <!--MODAL DELETE ALL-->
+    <div class="modal fade" id="deleteAllModal" role="dialog">
+        <div class="modal-dialog">
+          
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="deleteAllTitle">Are you sure?</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p id="deleteAllPokemonName">You are deleting the Pokemon from your list.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" id="deleteAllButton">Delete</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <!--END MODAL DELETE ALL-->
+
     <!--MODAL VIEW-->
     <div class="modal fade " id="viewModal" role="dialog">
         <div class="modal-dialog scrollModalDialog">
@@ -189,49 +172,49 @@
 
             <div id="contentDiv" class="modal-body scrollmodal">
                 <div style="width: 100%;">
-                    <div style="float: left; width: 40%;"><img id="viewPokemonImage" src=""></div>
+                    <div class="labelStats"><img id="viewPokemonImage" src=""></div>
 
-                    <div id="viewtypes" style="float: left;width: 60%;margin-bottom: 20px;">
+                    <div id="viewtypes">
                         <!--get in DB-->
                     </div>
 
-                    <div style="float: left;width: 60%">
-                        <div style="float: left;width: 40%">HP</div>
-                        <div class="progress" style="float: left;width: 60%">
+                    <div class="labelStats">
+                        <div class="labelStats">HP</div>
+                        <div class="progress">
                             <div id="pokemonHP" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
                         <br/>
-                        <div style="float: left;width: 40%">Attack</div>
-                        <div class="progress" style="float: left;width: 60%">
+                        <div class="labelStats">Attack</div>
+                        <div class="progress">
                             <div id="pokemonAttack" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
                         <br/>
-                        <div style="float: left;width: 40%">Defense</div>
-                        <div class="progress" style="float: left;width: 60%">
+                        <div class="labelStats">Defense</div>
+                        <div class="progress">
                             <div id="pokemonDefense" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
                         <br/>
-                        <div style="float: left;width: 40%">Speed</div>
-                        <div class="progress" style="float: left;width: 60%">
+                        <div class="labelStats">Speed</div>
+                        <div class="progress">
                             <div id="pokemonSpeed" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
                         <br/>
-                        <div style="float: left;width: 40%">Sp Atk</div>
-                        <div class="progress" style="float: left;width: 60%">
+                        <div class="labelStats">Sp Atk</div>
+                        <div class="progress">
                             <div id="pokemonSpAttack" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
                         <br/>
-                        <div style="float: left;width: 40%">Sp Def</div>
-                        <div class="progress" style="float: left;width: 60%">
+                        <div class="labelStats">Sp Def</div>
+                        <div class="progress">
                             <div id="pokemonSpDefense" class="progress-bar bg-success" style="width:10%"></div>
                         </div>
 
                     </div>
  
-                     <div style="float: left; width: 60%;margin-top: 20px;"><b>Captured in:</b></div>
-                     <div id="viewDay" style="float: left; width: 30%;margin-top: 20px;">???</div>
-                     <div style="float: left; width: 60%;"><b>Pokemon ID:</b></div>
-                     <div id="viewNationalID" style="float: left; width: 30%;">???</div>
+                     <div id="infoLab1"><b>Captured in:</b></div>
+                     <div id="viewDay">???</div>
+                     <div id="infoLab2"><b>Pokemon ID:</b></div>
+                     <div id="viewNationalID">???</div>
                      <br style="clear: left;" />
                 </div>
 
@@ -242,10 +225,10 @@
 
                 <h5 class="viewSeparator"><b>Informations</b></h5>
                 <div style="width: 100%;">
-                    <div style="float: left; width: 20%;"><b>Height:</b></div>
-                    <div id="viewHeight" style="float: left; width: 30%;">???</div>
-                    <div style="float: left; width: 20%;"><b>Weight:</b></div>
-                    <div id="viewWeight" style="float: left; width: 30%;">???</div>
+                    <div class="infoLab3"><b>Height:</b></div>
+                    <div id="viewHeight">???</div>
+                    <div class="infoLab3"><b>Weight:</b></div>
+                    <div id="viewWeight">???</div>
                 </div>
 
                 <h5 style="margin-top: 40px;"><b>Moves</b></h5>
@@ -282,93 +265,6 @@
     </div>
     <!--END MODAL VIEW-->
 
-        <!--MODAL FIND-->
-    <div class="modal fade scrollmodal" id="findModal" role="dialog">
-        <div class="modal-dialog scrollModalDialog">
-          
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="findTitle">Pokemon Found!</h4>
-              <h4 id="findPokemonName" style="display: none"></h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-
-                <div style="float: left; width: 40%;"><img id="findPokemonImage" src=""></div>
-
-                    <div id="findtypes" style="float: left;width: 60%;margin-bottom: 20px;">
-                        <!--get in DB-->
-                    </div>
-
-                    <div style="float: left;width: 60%">
-                        <div style="float: left;width: 40%">HP</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonHP" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Attack</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonAttack" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Defense</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonDefense" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Speed</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpeed" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Sp Atk</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpAttack" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                        <br/>
-                        <div style="float: left;width: 40%">Sp Def</div>
-                        <div class="progress" style="float: left;width: 60%">
-                            <div id="fpokemonSpDefense" class="progress-bar bg-success" style="width:10%"></div>
-                        </div>
-                    </div>
-
-                    <div style="width: 100%;">
-                        <div style="width: 30%;float: left;">
-                            <b>Pokemon ID:&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                        </div>
-                        <div id="findPokemonID" style="width: 20%;float: left;">
-                            25
-                        </div>
-                        <br style="clear: left;" />  
-                    </div>
-                    <h5 class="viewSeparator"><b>Description</b></h5>
-                    <div id="findDescription" style="width: 100%;">
-                        <!--get in DB-->
-                    </div>
-
-                    <h5 class="viewSeparator"><b>Informations</b></h5>
-                    <div style="width: 100%;">
-                        <div style="float: left; width: 20%;"><b>Height:</b></div>
-                        <div id="findHeight" style="float: left; width: 30%;">???</div>
-                        <div style="float: left; width: 20%;"><b>Weight:</b></div>
-                        <div id="findWeight" style="float: left; width: 30%;">???</div>
-                    </div>
-
-                    <h5 style="margin-top: 40px;"><b>Moves</b></h5>
-                    <div id="findMoves" style="width: 100%;">
-                        <!--get in DB-->
-                    </div>
-
-            </div>
-            <div class="modal-footer">
-              <button id="catch" type="button" class="btn btn-success">CATCH!</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Give Up</button>
-            </div>
-          </div>
-
-        </div>
-    </div>
-    <!--END MODAL FIND-->
 
     <!--OVERLAY TO MENU EFFECT-->
     <div class="overlay"></div> 

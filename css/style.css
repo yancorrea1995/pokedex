@@ -1,6 +1,4 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -14,7 +12,7 @@ p {
     color: #999;
 }
 
-#add_data_Modal,#deleteModal{
+#add_data_Modal,#deleteModal,#deleteAllModal{
     margin: auto !important;
     position: relative !important;
     margin-top: 20%;
@@ -100,6 +98,61 @@ p {
     float: left;
     width: 50%;
 }
+
+#removeAll{
+    display: none;
+}
+
+#mypokemonscards{
+    width: 400px;
+    text-align: center;
+}
+#spSearch{
+    position:absolute;
+    right:5%;
+    top:33%;
+}
+#viewtypes{
+    float: left;
+    width: 60%;
+    margin-bottom: 20px;
+}
+#infoLab1{
+    float: left;
+    width: 60%;
+    margin-top: 20px;
+}
+#viewDay{
+    float: left;
+    width: 30%;
+    margin-top: 20px;
+}
+#infoLab2{
+    float: left;
+    width: 60%;
+}
+#viewNationalID{
+    float: left;
+    width: 30%;
+}
+#viewHeight,#viewWeight{
+    float: left;
+    width: 30%;
+}
+.infoLab3{
+    float: left;
+    width: 20%;
+}
+
+.labelStats{
+    float: left;
+    width: 40%;
+}
+.progress{
+    float: left;
+    width: 60%;
+}
+
 
 a,
 a:hover,
