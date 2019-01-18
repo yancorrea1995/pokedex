@@ -125,9 +125,15 @@ function viewPokemon(id)
 		        divmove.className = 'moveItem';
 		        
 		        if(i<=numOfMoves)
+		        {
 			        divmove.innerHTML = object.move[i].name;
+			        divmove.style.cssText='display:block;';
+		        }
 			    else
+			    {
 			    	divmove.innerHTML = 'NULL';
+			    	divtype.style.cssText='display:none;';
+			    }
 
 		        divviewmoves.appendChild(divmove);
 		        console.log('i '+i);
