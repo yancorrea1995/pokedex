@@ -136,8 +136,6 @@ function viewPokemon(id)
 			    }
 
 		        divviewmoves.appendChild(divmove);
-		        console.log('i '+i);
-
 		    }
         	
 
