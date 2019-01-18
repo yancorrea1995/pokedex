@@ -131,7 +131,13 @@ function searchViewPokemon(id)
                 divmove.innerHTML = object.move[i].name;
                 divviewmoves.appendChild(divmove);
             }
-            
+            for (var k = numOfMoves + 1; k < 16; k++) {
+                var divmove = document.createElement('div');
+                divmove.id = 'move'+k;
+                divmove.className = 'moveItem';
+                divmove.innerHTML = '';
+                divviewmoves.appendChild(divmove);  
+            }
 
 
             var request2 = new XMLHttpRequest();

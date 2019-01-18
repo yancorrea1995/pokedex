@@ -138,9 +138,6 @@ function doDelete(id)
 
 function viewPokemon(id)
 {
-
-	
-
 	var request = new XMLHttpRequest();
 	request.open('GET', "https://pokedex-back.herokuapp.com/public/view.php?id="+id, true);
 
@@ -162,13 +159,38 @@ function viewPokemon(id)
 
 
         	var numOfMoves = object.move[0].count;
-        	for (var i = 1; i <= numOfMoves; i++) {
+        	for (var i = 1; i <= 16; i++) {
+		        var divmove = document.createElement('div');
+		        divmove.id = 'move'+i;
+		        divmove.className = 'moveItem';
+		        
+		        if(i<=numOfMoves)
+			        divmove.innerHTML = object.move[i].name;
+			    else
+			    	divmove.innerHTML = 'NULL';
+
+		        divviewmoves.appendChild(divmove);
+		        console.log('i '+i);
+
+		    }
+
+		    /*for (var i = 1; i <= numOfMoves; i++) {
 		        var divmove = document.createElement('div');
 		        divmove.id = 'move'+i;
 		        divmove.className = 'moveItem';
 		        divmove.innerHTML = object.move[i].name;
 		        divviewmoves.appendChild(divmove);
-		    }
+		        console.log('i '+i);
+
+		    }*/
+		    /*for (var k = numOfMoves + 1; k < 16; k++) {
+		    	var divmove = document.createElement('div');
+		        divmove.id = 'move'+k;
+		        divmove.className = 'moveItem';
+		        divmove.innerHTML = '';
+		        divviewmoves.appendChild(divmove);
+		        console.log('i '+i);	
+		    }*/
         	
 
 
