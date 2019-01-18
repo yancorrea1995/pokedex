@@ -132,7 +132,7 @@ function viewPokemon(id)
 			    else
 			    {
 			    	divmove.innerHTML = 'NULL';
-			    	divtype.style.cssText='display:none;';
+			    	divmove.style.cssText='display:none;';
 			    }
 
 		        divviewmoves.appendChild(divmove);
